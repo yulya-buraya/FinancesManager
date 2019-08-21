@@ -1,0 +1,48 @@
+﻿<Window x:Class="Finances.Currencs"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Finances"
+        mc:Ignorable="d"
+       Title="Валюты"  SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" Icon="icon/2.ico" Background="#FFA8BBCD" Height="400" ResizeMode="NoResize"  Width="600">
+
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="20 7 20 7" />
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="25" />
+        </Style>
+    </Window.Resources>
+
+    <DockPanel >
+        <Grid DockPanel.Dock="Top" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="300" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <ScrollViewer>
+                <DataGrid  AutoGenerateColumns="False" x:Name="CyrrenciesGrid" FontSize="14" FontFamily="Arial" Foreground="#FF123659"  BorderBrush="#FF234464" Background="#FFE3E3E6" >
+                    <DataGrid.Columns >
+
+                        <DataGridTextColumn  Binding="{Binding Fullname}" Header="                      Название валюты" FontSize="14" FontFamily="Arial "  Width="300" Foreground="#FF2C2C35"/>
+                        <DataGridTextColumn  Binding="{Binding Shortname}" Header="                   Обозначение" FontSize="14" FontFamily="Arial "  Width="300" Foreground="#FF2C2C35"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+        </Grid>
+        <StatusBar MinHeight="25" Height="20"  VerticalAlignment="Bottom" DockPanel.Dock="Top" Background="#FFF7CCB3" >
+            <StatusBarItem Background="#FFFDCCB5" BorderBrush="Black" >
+                <TextBlock Name="Status" ></TextBlock>
+            </StatusBarItem>
+        </StatusBar>
+
+        <StackPanel HorizontalAlignment="Center"  Grid.Row="1" Orientation="Horizontal">
+            <Button x:Name="addButton" Content="Добавить" Click="AddButton_Click" />
+            <!--<Button x:Name="deleteButton" Content="Удалить" Click="DeleteButton_Click"  />-->
+            <Button x:Name="UpdateButton" Content="Обновить" Click="UpdateButton_Click"  />
+            <Button x:Name="closeButton" Content="Закрыть" Click="CloseButton_Click" />
+        </StackPanel>
+
+    </DockPanel>
+</Window>
